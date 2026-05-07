@@ -32,7 +32,7 @@ router.get('/featured', async (req, res) => {
 // GET /api/destinations/:id - single destination (public)
 router.get('/:name', async (req, res) => {
     try {
-        const dest = await Destination.findByone({name:req.params.name});
+        const dest = await Destination.findOne({name:req.params.name});
         if (!dest) return res.status(404).json({ message: 'Destination not found' });
         res.json(dest);
     } catch (err) {
